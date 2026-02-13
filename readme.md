@@ -9,3 +9,5 @@
 > * A fully functional Desktop app would include all of this.
 >
 
+### Deskription
+> the project is all about building a qr based smart attendence system for any institutes or organization. 
