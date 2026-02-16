@@ -9,9 +9,9 @@ class App(tk.Tk):
         super().__init__()
 
         self.title("Smart QR Attendance System v1.0")
-        self.geometry("1000x650")
-        self.resizable(False, False)
-        self.configure(bg="#f4f6f9") # Matching the webapp background
+        self.geometry("1100x700") # Increased default size
+        self.resizable(True, True) # ALLOW FULL SCREEN
+        self.configure(bg="#f4f6f9")
 
         # Main container for pages
         self.container = tk.Frame(self)
@@ -29,6 +29,5 @@ class App(tk.Tk):
         self.show_frame("HomePage")
 
     def show_frame(self, page_name):
-        """Displays the requested frame on top of the stack."""
         frame = self.frames[page_name]
         frame.tkraise()
