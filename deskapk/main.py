@@ -21,5 +21,6 @@ if __name__ == "__main__":
 
 
     """
+    the name call feature only working for the first time after one call its just going silent seeing the qr code.
     
     """

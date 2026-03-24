@@ -11,3 +11,11 @@ class NameCall:
     def name_call(self,name):
         self.engine.say(f"{name} is present.")
         self.engine.runAndWait()
+
+    def call_notice(self,name):
+        self.engine.say(f"{name} already marked.")
+        self.engine.runAndWait()
+
+    def invalid_qr(self):
+        self.engine.say("Invalid QR.")
+        self.engine.runAndWait()

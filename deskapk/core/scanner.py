@@ -1,6 +1,7 @@
 # core/scanner.py
 import cv2
 import logging
+from core.sound import NameCall
 try:
     from pyzbar import pyzbar
 except ImportError:
@@ -11,6 +12,7 @@ class QRScanner:
         self.db_manager = db_manager
         self.cap = None
         self.is_running = False
+        self.sound = NameCall()
 
     def start_camera(self):
         """Attempts to open the camera with fallback indices."""
@@ -56,10 +58,16 @@ class QRScanner:
                 reg_id, name = student
                 student_name = name
                 result = self.db_manager.mark_attendance(reg_id)
-                status_msg = f"Success: {name}" if result == "SUCCESS" else f"Notice: {name} already marked"
+                if result == "SUCCESS":
+                    status_msg = f"Success: {name}"
+                    self.sound.name_call(name)
+                else:
+                    status_msg = f"Notice: {name} already marked"
+                    self.sound.name_call(name)
                 color = (0, 255, 0) if result == "SUCCESS" else (0, 165, 255)
             else:
                 status_msg = "Unknown QR Code"
+                self.sound.invalid_qr()
                 color = (0, 0, 255)
 
             # Draw Feedback

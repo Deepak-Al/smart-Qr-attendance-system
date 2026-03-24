@@ -4,7 +4,7 @@ from tkinter import messagebox
 from PIL import Image, ImageTk
 import cv2
 from core.scanner import QRScanner
-from core.sound import NameCall
+from core.sound import NameCall # <---
 from database.db_manager import DatabaseManager
 
 class DashboardPage(tk.Frame):
@@ -13,7 +13,7 @@ class DashboardPage(tk.Frame):
         self.controller = controller
         self.db = DatabaseManager()
         self.scanner = QRScanner(self.db)
-        self.sound = NameCall()
+        self.sound = NameCall()  # <---
 
         # 1. TOP HEADER
         header = tk.Frame(self, bg="#343a40", height=50)
@@ -71,7 +71,6 @@ class DashboardPage(tk.Frame):
             self.status_lbl.config(text=f"Status: {status}")
             if name:
                 self.count_lbl.config(text=f"Present: {self.db.get_daily_stats()}")
-                self.sound.name_call(name)
 
             if frame is not None:
                 # Convert frame for Tkinter
