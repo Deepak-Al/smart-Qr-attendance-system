@@ -1,21 +1,20 @@
-import pyttsx3
+import win32com.client
+
+import pythoncom
 
 class NameCall:
     def __init__(self):
-        self.engine = pyttsx3.init()
-        self.voices = self.engine.getProperty('voices')
-        self.engine.setProperty('voice', self.voices[0].id) # try 0 / 1
-        self.engine.setProperty('rate', 150) # speed
-        self.engine.setProperty('volume', 1.0)
+        self.speaker = win32com.client.Dispatch("SAPI.SpVoice")
+        pythoncom.CoInitialize()
 
     def name_call(self,name):
-        self.engine.say(f"{name} is present.")
-        self.engine.runAndWait()
+        self.speaker.Speak(f"{name} is present.")
+        pythoncom.CoUninitialize()
 
     def call_notice(self,name):
-        self.engine.say(f"{name} already marked.")
-        self.engine.runAndWait()
+        self.speaker.Speak(f"{name} already marked.")
+        pythoncom.CoUninitialize()
 
     def invalid_qr(self):
-        self.engine.say("Invalid QR.")
-        self.engine.runAndWait()
+        self.speaker.Speak("Invalid QR")
+        pythoncom.CoUninitialize()
