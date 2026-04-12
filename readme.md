@@ -10,4 +10,17 @@
 >
 
 ### Deskription
-> the project is all about building a qr based smart attendence system for any institutes or organization. 
+#### What are we building?
+> The project is all about building a qr based smart attendence system for any institutes or organization. 
+
+#### What are we using for it?
+> For frontend: Tkinter (python)
+> For backend: Python 
+> For database: Sqlite
+> For data processing: Pandas, CV
+> For sound integration: win32com and pythoncom
+
+#### Where we at the building process?
+> Integrated the sound feature of name calling to the system.
+
+

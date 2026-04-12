@@ -63,7 +63,7 @@ class QRScanner:
                     self.sound.name_call(name)
                 else:
                     status_msg = f"Notice: {name} already marked"
-                    self.sound.name_call(name)
+                    self.sound.call_notice(name)
                 color = (0, 255, 0) if result == "SUCCESS" else (0, 165, 255)
             else:
                 status_msg = "Unknown QR Code"
