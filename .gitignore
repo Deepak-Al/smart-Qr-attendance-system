@@ -1,0 +1,6 @@
+*__pycache__/
+*assets/
+*qrcodes/
+*.db
+/assets
+*.xlsx
